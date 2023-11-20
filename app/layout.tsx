@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './styles/styles.css';
+import { WidgetsProvider } from './context/WidgetContext';
 
 export const metadata: Metadata = {
   title: 'Greenspark - Product Widgets',
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <WidgetsProvider>{children}</WidgetsProvider>
+      </body>
     </html>
   );
 }

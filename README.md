@@ -5,13 +5,13 @@ My implementation of the product widgets task for Greenspark.
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [The task](#the-task)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
+  - [Thought process](#thought-process)
+  - [Challenges](#challenges)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 
@@ -75,9 +75,33 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [Next.js](https://nextjs.org/)
 - Typescript
 - [Tailwind CSS](https://tailwindcss.com/)
-- [shadcn](https://ui.shadcn.com/)
+- CSS (vanilla)
+- Semantic HTML markup
+- Mobile-first approach
+- [Radix](https://www.radix-ui.com/)
 
 ### Thought process
+
+To be able to complete the task within a realistic timeframe, I chose to build it using Next.js. It's a framework I'm already comfortable with, and out of the box supports Typescript and Tailwind, tools I really enjoy using.
+
+For styling, I went with a mix of Tailwind and vanilla CSS. Tailwind has been my go-to tool for styling in the past months, as it makes building UI very fast and apart from some finer details, it's really easy to customise it.
+
+For this task, I wanted to try something new and instead of cluttering the HTML with Tailwind classes, I decided to move them into the CSS file, like so:
+
+```
+
+.widget-container-title {
+  @apply text-3xl font-bold text-center text-greenspark_black relative mb-8;
+}
+
+```
+
+As for the HTML, the first thing I always consider is accessibility. Beyond the semantic markup, I paid attention to give every interactive element on the page visible focus states (so it can be easily navigated using keyboard only, as well).
+For more complex elements, I did the following:
+
+- created a vanilla solution, like for the custom checkbox (for this, I used [Stephanie Eckles's accessible checkbox guide](https://moderncss.dev/pure-css-custom-checkbox-style/) as a base)
+- used [Radix](https://www.radix-ui.com/) that provides customisable primitives for the most commonly used interactive elements. Their main focus is on accessibility, so for complex stuff I like to rely on Radix, as writing your own accessible elements can be really, really time-consuming (and frankly, just very tough).
+  With these, I made sure that the page is fully accessible for every user, those who rely on screen readers, as well.
 
 ### Challenges
 
@@ -85,8 +109,10 @@ Had an issue with hot reload I haven't encountered before. I was working on a sm
 
 ### Useful resources
 
-- [shadcn](https://ui.shadcn.com/)
+- [Radix](https://www.radix-ui.com)
+- [Custom checkbox](https://moderncss.dev/pure-css-custom-checkbox-style/)
 
 ## Author
 
+- Github - [Fluffy Kas](https://github.com/FluffyKas)
 - Frontend Mentor - [@FluffyKas](https://www.frontendmentor.io/profile/FluffyKas)

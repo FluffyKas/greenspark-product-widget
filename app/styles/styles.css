@@ -12,6 +12,18 @@ body {
   @apply rounded-lg mx-[1.38rem] my-12 py-9 md:mx-auto max-w-[53.1875rem];
   box-shadow: 0px 0.77778px 2.99074px 0px rgba(0, 0, 0, 0.01), 0px 3.42222px 6.19259px 0px rgba(0, 0, 0, 0.02), 0px 8.4px 12.35px 0px rgba(0, 0, 0, 0.03),
     0px 16.17778px 24.20741px 0px rgba(0, 0, 0, 0.03), 0px 27.22222px 44.50926px 0px rgba(0, 0, 0, 0.04), 0px 42px 76px 0px rgba(0, 0, 0, 0.05);
+  animation: appear 0.75s ease-in-out;
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .widget-container-title {
@@ -30,5 +42,125 @@ body {
 }
 
 .widgets-inner-container {
-  @apply flex flex-col px-14;
+  @apply flex flex-col px-[3.25rem];
+}
+
+.widget-header {
+  @apply flex items-center rounded-md pl-4;
+}
+
+.widget-title {
+  @apply py-[0.64rem] px-3 text-xs;
+}
+
+/* Custom checkbox styles */
+
+.form-control {
+  font-size: 0.875rem;
+  line-height: 1.1;
+}
+
+input[type='checkbox'] {
+  appearance: none;
+  background-color: white;
+  margin: 0;
+  font: inherit;
+  width: 1.15em;
+  height: 1.15em;
+  border: 2px solid hsla(0, 0%, 13%, 1);
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type='checkbox']::before {
+  content: '';
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em white;
+  /* Windows High Contrast Mode */
+  background-color: CanvasText;
+}
+
+input[type='checkbox']:checked {
+  background-color: hsla(157, 33%, 35%, 1);
+}
+
+input[type='checkbox']:checked::before {
+  transform: scale(1);
+  box-shadow: inset 1em 1em white;
+}
+
+input[type='checkbox']:focus {
+  outline: max(2px, 0.15em) solid hsla(157, 33%, 35%, 1);
+  outline-offset: max(2px, 0.15em);
+}
+
+/* Colour selector */
+
+.colour-selector {
+  display: flex;
+}
+
+.colour-selector div {
+  display: flex;
+}
+
+.colour-selector input {
+  appearance: none;
+}
+
+.colour-selector label {
+  position: relative;
+}
+
+.colour-selector label::before {
+  content: '';
+  border: red;
+  width: 2rem;
+  position: absolute;
+  height: 2rem;
+  left: 0;
+}
+
+/* Loader */
+
+.loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  position: relative;
+}
+.loader::after,
+.loader::before {
+  content: '';
+  box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid hsla(157, 33%, 35%, 1);
+  position: absolute;
+  left: 0;
+  top: 0;
+  animation: animloader 2s linear infinite;
+}
+.loader::after {
+  animation-delay: 1s;
+}
+
+@keyframes animloader {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
 }

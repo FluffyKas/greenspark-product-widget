@@ -8,6 +8,8 @@ interface WidgetsContextProps {
   loading: boolean;
   error: string | null;
   fetchWidgets: () => void;
+  activeWidget: IWidget | null;
+  setActiveWidget: (widget: IWidget | null) => void;
 }
 
 const WidgetsContext = createContext<WidgetsContextProps | undefined>(undefined);
@@ -18,8 +20,9 @@ interface WidgetsProviderProps {
 
 export const WidgetsProvider: React.FC<WidgetsProviderProps> = ({ children }) => {
   const [widgets, setWidgets] = useState<IWidget[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [activeWidget, setActiveWidget] = useState<IWidget | null>(null);
 
   const fetchWidgets = async () => {
     setLoading(true);
@@ -45,6 +48,8 @@ export const WidgetsProvider: React.FC<WidgetsProviderProps> = ({ children }) =>
     loading,
     error,
     fetchWidgets,
+    activeWidget,
+    setActiveWidget,
   };
 
   return <WidgetsContext.Provider value={contextValue}>{children}</WidgetsContext.Provider>;

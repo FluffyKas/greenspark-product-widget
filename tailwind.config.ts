@@ -5,12 +5,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        greenspark_purple: 'hsla(232, 51%, 36%, 1)',
-        greenspark_purple_hover: 'hsla(232, 51%, 36%, 0.8)',
+        greenspark_blue: 'hsla(232, 51%, 36%, 1)',
+        greenspark_blue_hover: 'hsla(232, 51%, 36%, 0.8)',
         greenspark_green: 'hsla(157, 33%, 35%, 1)',
         greenspark_green_hover: 'hsla(157, 17%, 73%, 1)',
-        greenspark_sand: 'hsla(42, 47%, 90%, 1)',
+        greenspark_beige: 'hsla(42, 47%, 90%, 1)',
         greenspark_grey: 'hsla(0, 0%, 69%, 1)',
+        greenspark_black: 'hsla(0, 0%, 13%, 1)',
       },
     },
   },

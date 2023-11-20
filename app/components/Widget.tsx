@@ -1,42 +1,72 @@
-export const Widget = () => {
+import Image from 'next/image';
+import { IWidget } from '../types/interfaces';
+import { SwitchComponent } from './Switch';
+
+import LogoWhite from '../assets/logo-white.svg';
+import LogoGreen from '../assets/logo-green.svg';
+import { colorToTailwind } from '../helpers/colorToTailwind';
+import { CustomCheckbox } from './CustomCheckbox';
+
+export const Widget = ({ widget }: { widget: IWidget }) => {
+  const bgColor = colorToTailwind(widget.selectedColor);
+
   return (
-    <div>
-      <h2 className="py-[0.64rem] px-3 bg-greenspark_purple text-white text-xs">
-        This product collects <span className="text-lg block">100 plastic bottles</span>
-      </h2>
-      <form>
-        <ul>
-          <li>
-            <label htmlFor="public-profile-link">Link to Public Profile</label>
-            <input type="checkbox" name="public-profile-link" id="public-profile-link" />
-          </li>
-          <li>
+    <article className="widget | mb-9">
+      <header className={`widget-header | ${bgColor}`}>
+        <Image src={widget.selectedColor === 'beige' ? LogoGreen : LogoWhite} alt="Greenspark" />
+        <h2 className="widget-title text-white">
+          This product {widget.action}
+          <span className="text-lg block">
+            {widget.amount} {widget.type}
+          </span>
+        </h2>
+      </header>
+
+      <ul>
+        <li className="flex justify-between pt-[0.84rem]">
+          <CustomCheckbox />
+        </li>
+        <li>
+          <form className="colour-selector">
             <fieldset>
-              <legend>Badge colour</legend>
+              <legend className="text-greenspark_green text-[0.875rem]">Badge colour</legend>
               <div>
-                <input type="radio" id="purple" name="colour" value="purple" checked />
-                <label htmlFor="purple">Purple</label>
+                <input className="appearance-none" type="radio" id="blue" name="colour" value="blue" defaultChecked />
+                <label htmlFor="purple" className="sr-only">
+                  Blue
+                </label>
               </div>
               <div>
                 <input type="radio" id="green" name="colour" value="green" />
-                <label htmlFor="green">Green</label>
+                <label htmlFor="green" className="sr-only">
+                  Green
+                </label>
+              </div>
+              <div>
+                <input type="radio" id="beige" name="colour" value="beige" />
+                <label htmlFor="beige" className="sr-only">
+                  Beige
+                </label>
               </div>
               <div>
                 <input type="radio" id="white" name="colour" value="white" />
-                <label htmlFor="white">White</label>
+                <label htmlFor="white" className="sr-only">
+                  White
+                </label>
               </div>
               <div>
                 <input type="radio" id="black" name="colour" value="black" />
-                <label htmlFor="black">Black</label>
+                <label htmlFor="black" className="sr-only">
+                  Black
+                </label>
               </div>
             </fieldset>
-          </li>
-          <li>
-            <label htmlFor="active">Active badge</label>
-            <input type="checkbox" name="active" id="active" />
-          </li>
-        </ul>
-      </form>
-    </div>
+          </form>
+        </li>
+        <li>
+          <SwitchComponent />
+        </li>
+      </ul>
+    </article>
   );
 };

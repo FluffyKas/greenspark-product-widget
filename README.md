@@ -105,7 +105,44 @@ For more complex elements, I did the following:
 
 ### Challenges
 
+1. Hot reload bug
+
 Had an issue with hot reload I haven't encountered before. I was working on a small NextJS project a week ago and everything worked fine there, but since then I had to download a new version of Node for NextJs to work. I suspected this might've been the root cause but before switching around different versions, I looked it up and found that there's already an issue about [this](https://github.com/vercel/next.js/issues/51162). Someone suggested that the problem might've been the global CSS import which I now moved to a different folder and magically, hot reload works again.
+
+2. Tailwind dynamic classes
+
+I originally thought of contructing some classes like this:
+
+```
+ <header className={`widget-header | bg-greenspark_${widget.selectedColor}`}>
+```
+
+But turns out Tailwind doesn't support dynamically constructed classes (it makes sense but I was kinda sad because this original solution looked clean). So instead of doing this, I had to resort to something longer:
+
+```
+let bgTailwindClass;
+  switch (widget.selectedColor) {
+    case 'blue':
+      bgTailwindClass = 'bg-greenspark_blue';
+      break;
+    case 'green':
+      bgTailwindClass = 'bg-greenspark_green';
+      break;
+    case 'beige':
+      bgTailwindClass = 'bg-greenspark_beige';
+      break;
+    case 'white':
+      bgTailwindClass = 'bg-greenspark_white';
+      break;
+    case 'black':
+      bgTailwindClass = 'bg-greenspark_black';
+      break;
+    default:
+      bgTailwindClass = 'bg-greenspark_green';
+  }
+
+   <header className={`widget-header | ${bgTailwindClass}`}>
+```
 
 ### Useful resources
 

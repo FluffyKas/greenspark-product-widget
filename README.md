@@ -6,13 +6,12 @@ My implementation of the product widgets task for Greenspark.
 
 - [Overview](#overview)
   - [The task](#the-task)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Thought process](#thought-process)
   - [Challenges](#challenges)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 
 ## Overview
@@ -44,13 +43,14 @@ My implementation of the product widgets task for Greenspark.
   like you to be proud of the quality of your final code
 - Optional: Write appropriate tests for your frontend service (unit, Storybook)
 
-### Screenshot
+### Screenshots
 
-![](./screenshot.jpg)
+![](./screenshots/mobile.png)
+![](./screenshots/desktop.png)
 
 ### Links
 
-- Live Site URL: [Greenspark Product Widgets]()
+- Live Site URL: [Greenspark Product Widgets](https://greenspark-product-widgets.netlify.app/)
 
 ### Local setup
 
@@ -96,12 +96,11 @@ For this task, I wanted to try something new and instead of cluttering the HTML 
 
 ```
 
-As for the HTML, the first thing I always consider is accessibility. Beyond the semantic markup, I paid attention to give every interactive element on the page visible focus states (so it can be easily navigated using keyboard only, as well).
+As for the HTML, the first thing I always consider is accessibility. Beyond the semantic markup, I made sure the page is screen reader friendly and gave interactive elements focus states where I could (although the colour picker proved to be too tricky, so here I had to resort to screen reader friendliness).
 For more complex elements, I did the following:
 
 - created a vanilla solution, like for the custom checkbox (for this, I used [Stephanie Eckles's accessible checkbox guide](https://moderncss.dev/pure-css-custom-checkbox-style/) as a base)
 - used [Radix](https://www.radix-ui.com/) that provides customisable primitives for the most commonly used interactive elements. Their main focus is on accessibility, so for complex stuff I like to rely on Radix, as writing your own accessible elements can be really, really time-consuming (and frankly, just very tough).
-  With these, I made sure that the page is fully accessible for every user, those who rely on screen readers, as well.
 
 ### Challenges
 
@@ -121,7 +120,7 @@ But turns out Tailwind doesn't support dynamically constructed classes (it makes
 
 ```
 let bgTailwindClass;
-  switch (widget.selectedColor) {
+  switch (color) {
     case 'blue':
       bgTailwindClass = 'bg-greenspark_blue';
       break;
@@ -144,10 +143,7 @@ let bgTailwindClass;
    <header className={`widget-header | ${bgTailwindClass}`}>
 ```
 
-### Useful resources
-
-- [Radix](https://www.radix-ui.com)
-- [Custom checkbox](https://moderncss.dev/pure-css-custom-checkbox-style/)
+It's a lot of code, but serves the purpose well and I managed to reuse it elsewhere.
 
 ## Author
 

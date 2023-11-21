@@ -12,6 +12,7 @@ My implementation of the product widgets task for Greenspark.
   - [Built with](#built-with)
   - [Thought process](#thought-process)
   - [Challenges](#challenges)
+  - [Tests](#tests)
 - [Author](#author)
 
 ## Overview
@@ -144,6 +145,12 @@ let bgTailwindClass;
 ```
 
 It's a lot of code, but serves the purpose well and I managed to reuse it elsewhere.
+
+### Challenges
+
+Haven't done tests beyond manual testing, but I thought I'll run the published page through Lighthouse and at least, got some pretty good scores there.
+
+![](./screenshots/lighthouse.png)
 
 ## Author
 

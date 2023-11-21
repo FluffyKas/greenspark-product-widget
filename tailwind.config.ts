@@ -12,6 +12,7 @@ const config: Config = {
         greenspark_beige: 'hsla(42, 47%, 90%, 1)',
         greenspark_grey: 'hsla(0, 0%, 69%, 1)',
         greenspark_black: 'hsla(0, 0%, 13%, 1)',
+        greenspark_white: 'hsla(0, 0%, 98%, 1)',
       },
     },
   },

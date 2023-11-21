@@ -8,8 +8,12 @@ body {
   font-family: 'Cabin', sans-serif;
 }
 
-.widget-container {
-  @apply rounded-lg mx-[1.38rem] my-12 py-9 md:mx-auto max-w-[53.1875rem];
+main {
+  @apply flex items-center justify-center min-h-screen;
+}
+
+.widgets-display {
+  @apply rounded-lg mx-[1.38rem] my-12 py-9 md:mx-auto max-w-[53.1875rem] px-[3.25rem] md:px-[2.25rem] bg-greenspark_white;
   box-shadow: 0px 0.77778px 2.99074px 0px rgba(0, 0, 0, 0.01), 0px 3.42222px 6.19259px 0px rgba(0, 0, 0, 0.02), 0px 8.4px 12.35px 0px rgba(0, 0, 0, 0.03),
     0px 16.17778px 24.20741px 0px rgba(0, 0, 0, 0.03), 0px 27.22222px 44.50926px 0px rgba(0, 0, 0, 0.04), 0px 42px 76px 0px rgba(0, 0, 0, 0.05);
   animation: appear 0.75s ease-in-out;
@@ -26,11 +30,11 @@ body {
   }
 }
 
-.widget-container-title {
-  @apply text-3xl font-bold text-center text-greenspark_black relative mb-8;
+.widgets-display-title {
+  @apply text-3xl font-bold text-center md:text-left text-greenspark_black relative mb-8;
 }
 
-.widget-container-title::after {
+.widgets-display-title::after {
   content: '';
   width: 16rem;
   height: 0.125rem;
@@ -41,8 +45,20 @@ body {
   background: hsla(0, 0%, 69%, 1);
 }
 
+@media screen and (min-width: 768px) {
+  .widgets-display-title::after {
+    left: 0;
+    transform: none;
+    width: 100%;
+  }
+}
+
 .widgets-inner-container {
-  @apply flex flex-col px-[3.25rem];
+  @apply flex flex-col md:flex-row gap-[3.59rem];
+}
+
+.widget {
+  min-width: 13.8327rem;
 }
 
 .widget-header {
@@ -50,7 +66,11 @@ body {
 }
 
 .widget-title {
-  @apply py-[0.64rem] px-3 text-xs;
+  @apply py-[0.64rem] px-3 text-[0.77538rem];
+}
+
+.widget-title span {
+  @apply block text-[1.11656rem];
 }
 
 /* Custom checkbox styles */

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { IWidget } from '../../types/interfaces';
 import { colorToTailwind } from '../../helpers/colourToTailwind';
 import { SwitchComponent } from '../Switch';
-import { CustomCheckbox } from '../CustomCheckbox';
+import { CustomCheckbox } from '../CustomCheckbox/CustomCheckbox';
 import { ColourPicker } from '../ColourPicker/ColourPicker';
 
 import LogoWhite from '../../assets/logo-white.svg';

@@ -1,4 +1,7 @@
+'use client';
+
 import Image from 'next/image';
+import { useState } from 'react';
 import { IWidget } from '../../types/interfaces';
 import { colorToTailwind } from '../../helpers/colourToTailwind';
 import { SwitchComponent } from '../Switch/Switch';
@@ -11,13 +14,18 @@ import LogoGreen from '../../assets/logo-green.svg';
 import './Widget.css';
 
 export const Widget = ({ widget }: { widget: IWidget }) => {
-  const bgColor = colorToTailwind(widget.selectedColor);
+  const [selectedColor, setSelectedColor] = useState(widget.selectedColor);
+  const bgColor = colorToTailwind(selectedColor);
+
+  const handleColourChange = (color: string) => {
+    setSelectedColor(color);
+  };
 
   return (
     <article className="widget">
       <header className={`widget-header | ${bgColor}`}>
-        <Image src={widget.selectedColor === 'beige' ? LogoGreen : LogoWhite} alt="Greenspark" priority={true} className="widget-logo" />
-        <h2 className={`widget-title ${bgColor === 'beige' ? 'text-greenspark_green' : bgColor === 'white' ? 'text-greenspark_green' : 'text-greenspark_white'}`}>
+        <Image src={selectedColor === 'beige' ? LogoGreen : selectedColor === 'white' ? LogoGreen : LogoWhite} alt="Greenspark" priority={true} className="widget-logo" />
+        <h2 className={`widget-title ${selectedColor === 'beige' ? 'text-greenspark_green' : selectedColor === 'white' ? 'text-greenspark_green' : 'text-greenspark_white'}`}>
           This product {widget.action}
           <span>
             {widget.amount} {widget.type}
@@ -30,7 +38,7 @@ export const Widget = ({ widget }: { widget: IWidget }) => {
           <CustomCheckbox active={widget.active} />
         </li>
         <li>
-          <ColourPicker />
+          <ColourPicker selectedColor={selectedColor} onColourChange={handleColourChange} />
         </li>
         <li>
           <SwitchComponent checked={widget.active} widgetId={widget.id} />

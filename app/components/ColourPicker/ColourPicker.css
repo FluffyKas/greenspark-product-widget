@@ -23,7 +23,7 @@
 }
 
 .colour-label:hover .colour-input-display {
-  transform: scale(1.15);
+  transform: scale(1.25);
 }
 
 .colour-label .colour-input-display {

@@ -19,7 +19,7 @@ export const CustomCheckbox = ({ active }: { active: boolean }) => {
   return (
     <div>
       <form className="checkbox-form">
-        <label className="checkbox-form-label">
+        <label className="checkbox-form-label" htmlFor="public-profile-checkbox">
           <Link href="#" className="checkbox-form-link">
             Link to Public Profile
           </Link>

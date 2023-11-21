@@ -8,8 +8,8 @@ interface WidgetsContextProps {
   loading: boolean;
   error: string | null;
   fetchWidgets: () => void;
-  activeWidget: IWidget | null;
-  setActiveWidget: (widget: IWidget | null) => void;
+  activeWidget: number | null;
+  setActiveWidget: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 const WidgetsContext = createContext<WidgetsContextProps | undefined>(undefined);
@@ -22,7 +22,7 @@ export const WidgetsProvider: React.FC<WidgetsProviderProps> = ({ children }) =>
   const [widgets, setWidgets] = useState<IWidget[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [activeWidget, setActiveWidget] = useState<IWidget | null>(null);
+  const [activeWidget, setActiveWidget] = useState<number | null>(null);
 
   const fetchWidgets = async () => {
     setLoading(true);
@@ -30,6 +30,9 @@ export const WidgetsProvider: React.FC<WidgetsProviderProps> = ({ children }) =>
       const response = await fetch('https://api.mocki.io/v2/016d11e8/product-widgets');
       const data: IWidget[] = await response.json();
       setWidgets(data);
+      const activeWidget = data.find((widget) => widget.active)?.id || null;
+      setActiveWidget(activeWidget);
+
       setError(null);
     } catch (error) {
       setWidgets([]);

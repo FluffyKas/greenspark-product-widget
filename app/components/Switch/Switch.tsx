@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import * as Switch from '@radix-ui/react-switch';
+import { useWidgets } from '@/app/context/WidgetContext';
 
-export const SwitchComponent = ({ checked }: { checked: boolean }) => {
+export const SwitchComponent = ({ checked, widgetId }: { checked: boolean; widgetId: number }) => {
+  const { activeWidget, setActiveWidget } = useWidgets();
   const [checkedState, setCheckedState] = useState(checked);
   const handleChange = () => {
     setCheckedState((prevState) => !prevState);
+    setActiveWidget(widgetId);
   };
 
   return (
@@ -15,7 +18,7 @@ export const SwitchComponent = ({ checked }: { checked: boolean }) => {
         </label>
         <Switch.Root
           className="w-[42px] h-[21px] bg-blackA6 rounded-full relative border border-greenspark_green_hover focus:shadow-[0_0_0_2px] focus:shadow-greenspark_green data-[state=checked]:bg-greenspark_green outline-none cursor-default"
-          checked={checkedState}
+          checked={widgetId === activeWidget ? true : false}
           onCheckedChange={handleChange}
           id="activate-badge"
         >

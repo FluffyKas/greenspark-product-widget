@@ -33,7 +33,7 @@ export const Widget = ({ widget }: { widget: IWidget }) => {
           <ColourPicker />
         </li>
         <li>
-          <SwitchComponent checked={widget.active} />
+          <SwitchComponent checked={widget.active} widgetId={widget.id} />
         </li>
       </ul>
     </article>

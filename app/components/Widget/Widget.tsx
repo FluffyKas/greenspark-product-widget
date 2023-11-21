@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { IWidget } from '../../types/interfaces';
 import { colorToTailwind } from '../../helpers/colourToTailwind';
-import { SwitchComponent } from '../Switch';
+import { SwitchComponent } from '../Switch/Switch';
 import { CustomCheckbox } from '../CustomCheckbox/CustomCheckbox';
 import { ColourPicker } from '../ColourPicker/ColourPicker';
 
@@ -33,7 +33,7 @@ export const Widget = ({ widget }: { widget: IWidget }) => {
           <ColourPicker />
         </li>
         <li>
-          <SwitchComponent />
+          <SwitchComponent checked={widget.active} />
         </li>
       </ul>
     </article>

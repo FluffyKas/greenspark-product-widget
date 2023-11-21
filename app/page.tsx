@@ -5,7 +5,7 @@ import { Widget } from './components/Widget/Widget';
 import { useWidgets } from './context/WidgetContext';
 
 export default function Home() {
-  const { widgets, loading, error } = useWidgets();
+  const { widgets, loading } = useWidgets();
 
   return (
     <main>

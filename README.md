@@ -103,6 +103,8 @@ For more complex elements, I did the following:
 - created a vanilla solution, like for the custom checkbox (for this, I used [Stephanie Eckles's accessible checkbox guide](https://moderncss.dev/pure-css-custom-checkbox-style/) as a base)
 - used [Radix](https://www.radix-ui.com/) that provides customisable primitives for the most commonly used interactive elements. Their main focus is on accessibility, so for complex stuff I like to rely on Radix, as writing your own accessible elements can be really, really time-consuming (and frankly, just very tough).
 
+State management: it was fairly simple, so I thought this doesn't call for anything more complex, I managed to do everything with React context. Feels like the way I left things would make it easy to expand on this component, connect it to the backend and make updates.
+
 ### Challenges
 
 1. Hot reload bug

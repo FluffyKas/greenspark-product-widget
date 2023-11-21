@@ -121,30 +121,3 @@ input[type='checkbox']:focus {
   outline: max(2px, 0.15em) solid hsla(157, 33%, 35%, 1);
   outline-offset: max(2px, 0.15em);
 }
-
-/* Colour selector */
-
-.colour-selector {
-  display: flex;
-}
-
-.colour-selector div {
-  display: flex;
-}
-
-.colour-selector input {
-  appearance: none;
-}
-
-.colour-selector label {
-  position: relative;
-}
-
-.colour-selector label::before {
-  content: '';
-  border: red;
-  width: 2rem;
-  position: absolute;
-  height: 2rem;
-  left: 0;
-}

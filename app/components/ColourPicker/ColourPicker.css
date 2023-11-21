@@ -1,0 +1,32 @@
+.colour-picker fieldset {
+  @apply flex justify-between;
+}
+
+.legend {
+  @apply text-greenspark_green text-[0.875rem];
+}
+
+.colours-container {
+  @apply flex gap-1;
+}
+
+.colour-input {
+  @apply appearance-none;
+}
+
+.colour-input:checked + label .colour-input-display {
+  @apply border-2 border-greenspark_grey;
+}
+
+.colour-label {
+  @apply inline-block w-4 h-4 cursor-pointer;
+}
+
+.colour-label:hover .colour-input-display {
+  transform: scale(1.15);
+}
+
+.colour-label .colour-input-display {
+  @apply block w-4 h-4;
+  transition: transform 0.2s ease-in-out;
+}

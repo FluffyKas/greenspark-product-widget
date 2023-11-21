@@ -1,7 +1,7 @@
-export const colorToTailwind = (widgetColor: string) => {
+export const colorToTailwind = (color: string) => {
   let bgTailwindClass;
 
-  switch (widgetColor) {
+  switch (color) {
     case 'blue':
       bgTailwindClass = 'bg-greenspark_blue';
       break;

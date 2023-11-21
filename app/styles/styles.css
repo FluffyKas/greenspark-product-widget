@@ -54,7 +54,7 @@ main {
 }
 
 .widgets-inner-container {
-  @apply flex flex-col md:flex-row gap-[3.59rem];
+  @apply flex flex-col lg:flex-row gap-[3.59rem];
 }
 
 .widget {

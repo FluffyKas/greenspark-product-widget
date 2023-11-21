@@ -1,7 +1,7 @@
 'use client';
 
 import { Loader } from './components/Loader/Loader';
-import { Widget } from './components/Widget';
+import { Widget } from './components/Widget/Widget';
 import { useWidgets } from './context/WidgetContext';
 
 export default function Home() {

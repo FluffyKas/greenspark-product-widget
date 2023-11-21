@@ -1,0 +1,11 @@
+.widget {
+  @apply mb-9;
+}
+
+.widget-logo {
+  @apply w-[2.48119rem];
+}
+
+.widget-settings {
+  @apply flex flex-col gap-[0.62rem];
+}

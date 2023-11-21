@@ -27,7 +27,7 @@ export const Widget = ({ widget }: { widget: IWidget }) => {
 
       <ul className="widget-settings">
         <li>
-          <CustomCheckbox />
+          <CustomCheckbox active={widget.active} />
         </li>
         <li>
           <ColourPicker />

@@ -5,9 +5,11 @@ import './CustomCheckbox.css';
 import IconTooltip from '../../assets/icon-tooltip.svg';
 import Image from 'next/image';
 import { useState } from 'react';
+import { useWidgets } from '@/app/context/WidgetContext';
 
-export const CustomCheckbox = () => {
+export const CustomCheckbox = ({ active }: { active: boolean }) => {
   const [isChecked, setIsChecked] = useState(false);
+  const [usePublicProfile, setUsePublicProfile] = useState<boolean>(active);
 
   return (
     <form className="checkbox-form">
@@ -19,7 +21,14 @@ export const CustomCheckbox = () => {
           <Image src={IconTooltip} alt="" />
         </button>
       </label>
-      <input type="checkbox" name="public-profile-checkbox" id="public-profile-checkbox" className="public-profile-checkbox" />
+      <input
+        type="checkbox"
+        name="public-profile-checkbox"
+        id="public-profile-checkbox"
+        className="public-profile-checkbox"
+        checked={usePublicProfile}
+        onChange={() => setUsePublicProfile(!usePublicProfile)}
+      />
     </form>
   );
 };
